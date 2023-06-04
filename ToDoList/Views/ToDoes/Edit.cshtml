@@ -1,0 +1,49 @@
+﻿@model ToDoList.Models.ToDo
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@*<h2>Edit</h2>*@
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Edit your task:</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IsDone, htmlAttributes: new { @class = "control-label col-md-2 " })
+        <div class="col-md-12">
+            <div class="edit-checkbox ">
+                @Html.EditorFor(model => model.IsDone)
+                @Html.ValidationMessageFor(model => model.IsDone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-12 buttons">
+            <input type="submit" value="Save" class="btn btn-outline-dark" />
+            @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-outline-dark col-md-12" })
+        </div>
+    </div>
+
+</div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,69 @@
+﻿@model ToDoList.Models.ToDo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div>
+    <h4>Delete your task:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDone)
+        </dt>
+
+        <dd>
+            <label class="checkbox-label">
+                @Html.CheckBoxFor(model => model.IsDone, new { @class = "disable-checkbox" })
+                <span class="checkmark"></span>
+            </label>
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color buttons">
+            <input type="submit" value="Delete" class="btn btn-outline-dark" />
+            <button type="button" onclick="window.location.href='@Url.Action("Index")'" class="btn btn-outline-dark">Back</button>
+        </div>
+    }
+
+</div>
+
+<style>
+    .checkbox-label {
+        position: relative;
+        cursor: not-allowed;
+    }
+
+        .checkbox-label input[type="checkbox"]:disabled + .checkmark {
+            background-color: #eee;
+        }
+
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 18px;
+        width: 18px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+    }
+
+        .checkmark::after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+</style>

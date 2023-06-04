@@ -1,0 +1,40 @@
+﻿@model ToDoList.Models.ToDo
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="tableDiv"></div>
+<div id="todoCreateForm">
+    @using (Ajax.BeginForm("AJAXCreate", "ToDoes", new AjaxOptions
+    {
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "POST",
+        UpdateTargetId = "tableDiv",
+        OnSuccess = "clearInput"
+    }))
+    {
+        <div class="form-group">
+            @Html.AntiForgeryToken()
+            <div class="input-group">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", placeholder = "Create a task", required = "required", id = "taskDescription" } })
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-dark ml-2 add-btn">Create</button>
+                </div>
+            </div>
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Custom_Scripts/BuildTable.js"></script>
+    <script>
+        function clearInput() {
+            document.getElementById("taskDescription").value = "";
+        }
+    </script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+}

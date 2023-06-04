@@ -1,0 +1,389 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+
+select,
+textarea {
+    width: 100%;
+}
+
+.input-group {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+#title {
+    border-bottom: 1px solid grey;
+    margin: 0;
+    padding-bottom: 16px;
+}
+
+.row {
+    margin-top: 8px;
+}
+
+.input-group-append {
+    display: flex;
+    margin-left: 8px !important;
+}
+
+.CompletedToDo {
+    text-decoration: line-through;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+#progressBarToDo {
+    margin-bottom: 12px;
+}
+
+.ActiveCheck:hover {
+   /* transform: scale(0.75);*/
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.control-label {
+    font-weight: bold;
+    display: flex;
+}
+
+.interaction {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 0 !important;
+    
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1 1 auto;
+}
+
+.text-danger {
+    color: red;
+}
+
+.checkbox label {
+    font-weight: normal;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-outline-dark {
+    color: #333;
+    background-color: transparent;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+    margin: 0;
+}
+
+.btn-outline-dark:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.CompletedToDo {
+    display: flex;
+    align-items: center;
+}
+
+.ActiveCheck {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .col-md-2
+    .col-md-10,
+    .offset-md-2 {
+        width: 100%;
+    }
+
+}
+
+.form-horizontal {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+}
+
+.checkbox {
+    margin-top: 5px;
+}
+
+.check-box {
+    cursor: pointer;
+}
+
+.small-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+}
+
+.progress-bar {
+    background: black;
+}
+
+.form-check-input {
+    background-color: black;
+}
+
+
+.text-box:focus {
+    outline: 2px solid black;
+    box-shadow: 0 0 3px black;
+    border-radius: 5px;
+}
+
+.ActiveCheck {
+    display: flex;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    accent-color: black;
+}
+
+.checkbox-wrapper {
+    position: relative;
+}
+
+.task-name {
+    display: flex;
+}
+
+.task-wrapper {
+    border-bottom-width: 1px;
+}
+
+td {
+    border: 0;
+}
+
+.CompletedToDo {
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+
+input[type="checkbox"].ActiveCheck {
+    border-color: black;
+    background-color: black;
+    background: black;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.edit-checkbox {
+    cursor: none;
+    display: flex;
+    justify-content: flex-start;
+}
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+
+.CompletedToDo {
+    text-decoration: line-through;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.ActiveCheck:hover {
+   /* scale: 1.4;*/
+    cursor: pointer;
+    
+}
+
+.interaction {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-right: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.text-danger {
+    color: red;
+}
+
+.checkbox label {
+    font-weight: normal;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.progress {
+    display: flex;
+    flex: auto;
+}
+
+#taskDescription {
+    border-radius: 7px;
+}
+
+.btn-outline-dark {
+    color: #333;
+    background-color: transparent;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-dark:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .col-md-2,
+    .col-md-10,
+    .offset-md-2 {
+        width: 100%;
+    }
+
+    .form-horizontal {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+
+    .checkbox {
+        margin-top: 5px;
+    }
+
+    .check-box {
+        cursor: pointer;
+    }
+
+    .small-btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .progress-bar {
+        background: black;
+    }
+
+    .form-check-input {
+        background-color: black;
+    }
+
+    .text-box:focus {
+        outline: 2px solid black;
+        box-shadow: 0 0 3px black;
+        border-radius: 5px;
+    }
+
+    .edit-checkbox {
+        cursor: none;
+    }
+}
+

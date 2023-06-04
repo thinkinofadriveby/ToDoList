@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Підтвердження електронної пошти";
+}
+
+<h2>Підтвердження електронної пошти</h2>
+
+<div class="alert alert-success">
+    <strong>Успішно!</strong> Ваша електронна адреса була успішно підтверджена. Тепер ви будете автоматично перенаправлені на сторінку входу.
+</div>
+
+<script type="text/javascript">
+    // Чекаємо завершення завантаження сторінки
+    document.addEventListener("DOMContentLoaded", function () {
+        // Затримка протягом 3 секунд перед перенаправленням
+        setTimeout(function () {
+            // Перенаправлення на сторінку входу
+            window.location.href = "@Url.Action("Login", "Account")";
+        }, 3000); // Затримка в мілісекундах (у цьому прикладі 3 секунди)
+    });
+</script>
