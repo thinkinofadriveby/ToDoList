@@ -57,6 +57,20 @@ namespace ToDoList.Controllers
         }*/
 
 
+        [HttpGet]
+        public async Task<ActionResult> ConfirmEmail(string userId, string code)
+        {
+            if (userId == null || code == null)
+            {
+                return View("Error");
+            }
+            var result = await UserManager.ConfirmEmailAsync(userId, code);
+            return View(result.Succeeded ? "ConfirmEmail" : "Error");
+        }
+
+
+
+
         public ApplicationSignInManager SignInManager
         {
             get
@@ -180,7 +194,7 @@ namespace ToDoList.Controllers
 
         //
         // POST: /Account/Register
-        [HttpPost]
+        /*[HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
@@ -206,7 +220,9 @@ namespace ToDoList.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
-        }
+        }*/
+
+
 
         /* [HttpPost]
          [AllowAnonymous]
@@ -247,34 +263,66 @@ namespace ToDoList.Controllers
 
         //
         // GET: /Account/ConfirmEmail
-       /* [AllowAnonymous]
-        public async Task<ActionResult> ConfirmEmail(string userId, string code)
+        /* [AllowAnonymous]
+         public async Task<ActionResult> ConfirmEmail(string userId, string code)
+         {
+             if (userId == null || code == null)
+             {
+                 return View("Error");
+             }
+
+             var result = await UserManager.ConfirmEmailAsync(userId, code);
+
+             if (result.Succeeded)
+             {
+                 var user = await UserManager.FindByIdAsync(userId);
+                 await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                 user.EmailConfirmed = true;
+
+                 return View("ConfirmEmailSuccess");
+             }
+             else
+             {
+                 return View("Error");
+             }
+         }*/
+
+        /* public ActionResult EmailConfirmationSuccess()
+         {
+             return View();
+         }*/
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            if (userId == null || code == null)
+            if (ModelState.IsValid)
             {
-                return View("Error");
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    // Comment out the line that immediately signs the user in
+                    // await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                    var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", 
+                        new { userId = user.Id, code = code }, protocol: "https");
+
+
+                    await UserManager.SendEmailAsync(user.Id, "Confirm your account",
+                        "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    return RedirectToAction("RegistrationConfirmation", "Home");
+                }
+                AddErrors(result);
             }
 
-            var result = await UserManager.ConfirmEmailAsync(userId, code);
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
 
-            if (result.Succeeded)
-            {
-                var user = await UserManager.FindByIdAsync(userId);
-                await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                user.EmailConfirmed = true;
-
-                return View("ConfirmEmailSuccess");
-            }
-            else
-            {
-                return View("Error");
-            }
-        }*/
-
-       /* public ActionResult EmailConfirmationSuccess()
-        {
-            return View();
-        }*/
 
 
         //

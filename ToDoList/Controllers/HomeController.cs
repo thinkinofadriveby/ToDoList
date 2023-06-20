@@ -26,5 +26,10 @@ namespace ToDoList.Controllers
 
             return View();
         }
+
+        public ActionResult RegistrationConfirmation()
+        {
+            return View();
+        }
     }
 }

@@ -327,6 +327,7 @@
     <Content Include="Views\ToDoes\Index.cshtml" />
     <Content Include="Views\ToDoes\_ToDoTable.cshtml" />
     <Content Include="Views\Account\EmailConfirmationSuccess.cshtml" />
+    <Content Include="Views\Home\RegistrationConfirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

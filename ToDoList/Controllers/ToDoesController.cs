@@ -21,6 +21,20 @@ namespace ToDoList.Controllers
             return View();
         }
 
+        /*public ActionResult Index(bool? isDone)
+        {
+            IQueryable<ToDo> todos = db.ToDos;
+
+            if (isDone.HasValue)
+            {
+                todos = todos.Where(t => t.IsDone == isDone.Value);
+            }
+
+            // Передайте список в представлення
+            return View(todos.FirstOrDefault());
+        }*/
+
+
 
         private IEnumerable<ToDo> GetMyToDoes()
         {
@@ -29,7 +43,7 @@ namespace ToDoList.Controllers
                 (x => x.Id == currentUserId);
 
             IEnumerable <ToDo> myToDoes = db.ToDos.ToList().Where(x => x.User == currentUser);
-
+            
             int completeCount = 0;
             foreach (ToDo toDo in myToDoes)
             {
